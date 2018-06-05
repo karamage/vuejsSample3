@@ -1,9 +1,15 @@
 var app = new Vue({
   el: '#app',
   data: {
+    name: 'キマイラ',
     message: 'Hello Vue.js!',
     count: 0,
     list: ['りんご','banana', 'strawberry'],
+    list2: [
+      { id: 1, name: 'スライム', hp: 100 },
+      { id: 2, name: 'ゴブリン', hp: 200 },
+      { id: 3, name: 'ドラゴン', hp: 500 },
+    ],
     show: true,
     isChild: true,
     isActive: true,
@@ -34,6 +40,18 @@ var app = new Vue({
     },
     increment: function() {
       this.count += 1
-    }
+    },
+    doAdd: function() {
+      console.log("doAdd")
+      // リスト内で一番大きなIDを取得
+      const max = this.list2.reduce(function(a1,b1) {
+        return a1.id > b1.id ? a1.id : b1.id
+      })
+      this.list2.push({
+        id: max + 1,
+        name: this.name,
+        hp:500,
+      })
+    },
   }
 })
