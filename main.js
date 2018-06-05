@@ -25,6 +25,8 @@ var app = new Vue({
       height: 200
     },
     radius: 50,
+    ok: true,
+    type: 'B',
   },
   methods: {
     handleClick: function (event) {

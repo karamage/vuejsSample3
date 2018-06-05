@@ -12,10 +12,23 @@
     </transition>
     <p>Hello {{ message }}</p>
     <p>count = {{ count }}</p>
-    <p v-bind:class="{ child: isChild, 'is-active': isActive}">Text</p>
-    <p v-bind:style="{ color: textColor, backgroundColor: bgColor}" >Text</p>
-    <p v-bind:class="classObject">classObject</p>
-    <p v-bind:style="styleObject">styleObject</p>
+    <div v-if="ok">v-if条件による描画</div>
+    <div v-show="ok">v-show条件による表示</div>
+    <template v-if="ok">
+      <p v-bind:class="{ child: isChild, 'is-active': isActive}">Text</p>
+      <p v-bind:style="{ color: textColor, backgroundColor: bgColor}" >Text</p>
+      <p v-bind:class="classObject">classObject</p>
+      <p v-bind:style="styleObject">styleObject</p>
+    </template>
+    <div v-if="type === 'A'">
+      type は A
+    </div>
+    <div v-else-if="type === 'B'">
+      type は B
+    </div>
+    <div v-else>
+      すべての条件を満たさなかった
+    </div>
     <img v-bind="item" v-bind:id="'thumb-' + item.id">
     <input v-model="message">
     <input v-model.number="count">
