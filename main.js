@@ -34,6 +34,9 @@ var app = new Vue({
     ok: true,
     type: 'B',
   },
+  mounted: function() {
+    console.log(this.$el)
+  },
   created: function() {
     console.log("created")
     this.list2.forEach(function(item){
@@ -62,5 +65,8 @@ var app = new Vue({
     doRemove: function(index) {
       this.list2.splice(index, 1)
     },
+    doAttack: function(index) {
+      this.list2[index].hp -= 10
+    }
   }
 })
