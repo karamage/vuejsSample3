@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js App</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <transition>
+      <p v-if="show">Hello Vue.js!</p>
+    </transition>
+    <p>Hello {{ message }}</p>
+    <p>count = {{ count }}</p>
+    <p v-bind:class="{ child: isChild, 'is-active': isActive}">Text</p>
+    <p v-bind:style="{ color: textColor, backgroundColor: bgColor}" >Text</p>
+    <p v-bind:class="classObject">classObject</p>
+    <p v-bind:style="styleObject">styleObject</p>
+    <img v-bind="item" v-bind:id="'thumb-' + item.id">
+    <input v-model="message">
+    <input v-model.number="count">
+    <button v-on:click="increment">カウントを増やす</button>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+    </svg>
+    <input type="range" min="0" max="100" v-model="radius">
+    <ol>
+      <li v-for="item in list">{{ item }}</li>
+      <button v-on:click="handleClick">Click</button>
+    </ol>
+    <button v-on:click="show=!show">切り替え</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
