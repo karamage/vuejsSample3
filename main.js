@@ -34,6 +34,12 @@ var app = new Vue({
     ok: true,
     type: 'B',
   },
+  created: function() {
+    console.log("created")
+    this.list2.forEach(function(item){
+      this.$set(item, 'active', false)
+    }, this)
+  },
   methods: {
     handleClick: function (event) {
       alert(event.target)
@@ -52,6 +58,9 @@ var app = new Vue({
         name: this.name,
         hp:500,
       })
+    },
+    doRemove: function(index) {
+      this.list2.splice(index, 1)
     },
   }
 })

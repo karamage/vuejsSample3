@@ -14,12 +14,13 @@
     <button v-on:click="doAdd">モンスターを追加</button>
     <ul>
       <!-- v-if="item.hp < 300" -->
-      <li v-for="item in list2"
+      <li v-for="(item, index) in list2"
           v-bind:key="item.id"
           v-bind:class="{ tuyoi: item.hp > 300 }"
       >
-        ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+        ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }} {{ item.active }}
         <span v-if="item.hp > 300">つよい!</span>
+        <button v-on:click="doRemove(index)">モンスターを削除</button>
       </li>
     </ul>
     <p>Hello {{ message }}</p>
