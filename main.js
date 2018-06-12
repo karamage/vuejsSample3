@@ -36,6 +36,7 @@ var app = new Vue({
   },
   mounted: function() {
     console.log(this.$el)
+    console.log(this.$refs.hello)
   },
   created: function() {
     console.log("created")
@@ -45,7 +46,7 @@ var app = new Vue({
   },
   methods: {
     handleClick: function (event) {
-      alert(event.target)
+      alert('クリックしたよ' + event.target)
     },
     increment: function() {
       this.count += 1
