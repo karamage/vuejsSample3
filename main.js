@@ -1,3 +1,12 @@
+/*
+import VueLodash from 'vue-lodash'
+const options = { name: 'lodash' } // customize the way you want to call it
+
+Vue.use(VueLodash, options) // options is optional
+*/
+
+//import axios from 'axios';
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -44,6 +53,7 @@ var app = new Vue({
     type: 'B',
     width: 800,
     height: 600,
+    order: false,
   },
   mounted: function() {
     console.log(this.$el)
@@ -56,13 +66,16 @@ var app = new Vue({
     }, this)
   },
   computed: {
+    sorted: function() {
+      return this.matched
+    },
     matched: function() {
       return this.list.filter(function(el){
         return el.price <= this.budget
       }, this)
     },
     limited: function() {
-      return this.matched.slice(0, this.limit)
+      return this.sorted.slice(0, this.limit)
     },
     // 算出プロパティhalfWidthを定義
     halfWidth: function() {
