@@ -33,6 +33,8 @@ var app = new Vue({
     radius: 50,
     ok: true,
     type: 'B',
+    width: 800,
+    height: 600,
   },
   mounted: function() {
     console.log(this.$el)
@@ -43,6 +45,21 @@ var app = new Vue({
     this.list2.forEach(function(item){
       this.$set(item, 'active', false)
     }, this)
+  },
+  computed: {
+    // 算出プロパティhalfWidthを定義
+    halfWidth: function() {
+      return this.width / 2
+    },
+    halfHeight: function() {
+      return this.height / 2
+    },
+    halfPoint: function() {
+      return {
+        x: this.halfWidth,
+        y: this.halfHeight
+      }
+    }
   },
   methods: {
     handleClick: function (event) {

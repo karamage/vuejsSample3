@@ -10,6 +10,9 @@
     <transition>
       <p v-if="show" ref="hello">Hello Vue.js!</p>
     </transition>
+    <p>{{ width }} の半分は {{ halfWidth }}</p>
+    <p>X: {{ halfPoint.x }}</p>
+    <p>Y: {{ halfPoint.y }}</p>
     <input v-model="name">
     <button v-on:click="doAdd">モンスターを追加</button>
     <ul>
@@ -31,8 +34,9 @@
       Hello {{ message }}
     </a>
     <span v-text="message"></span>
-    <p>Hello {{ message }}</p>
+    <pre>Hello {{ message }}</pre>
     <p>count = {{ count }}</p>
+    <textarea v-model="message"></textarea>
     <div v-if="ok">v-if条件による描画</div>
     <div v-show="ok">v-show条件による表示</div>
     <template v-if="ok">
